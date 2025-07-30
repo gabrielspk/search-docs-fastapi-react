@@ -1,0 +1,56 @@
+# Node.js  React
+frontendnode_modules
+frontenddist
+frontend.vite
+frontend.env.local
+frontend.DS_Store
+
+# Logs
+.log
+.out
+
+# Python
+__pycache__
+.py[cod]
+.pyo
+.so
+.egg-info
+.sqlite3
+.db
+
+# Virtualenv
+env
+venv
+ENV
+.venv
+
+# FastAPI  Uvicorn
+backend.env
+backend__pycache__
+backend.mypy_cache
+backend.pytest_cache
+backend.vscode
+
+# VSCode  IDEs
+.vscode
+.idea
+.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test  coverage
+.coverage
+htmlcov
+.pytest_cache
+.tox
+
+# Build
+build
+dist
+
+# Reports  Temporary
+.bak
+.tmp
+.old
