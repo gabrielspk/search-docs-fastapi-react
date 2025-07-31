@@ -36,6 +36,6 @@ def criar_relatorio(documentos_encontrados, documentos_nao_encontrados, qtde_arq
     #tentando salvar o relatório, se estiver aberto será retorno uma except
     try:
         workbook.save(caminho_relatorio)
-        return f"Relatório gerado com sucesso: {nome_arquivo}"
+        return caminho_relatorio
     except PermissionError:
-        return "Não foi possível gerar o relatório, pois está aberto por outro programa."
+        raise Exception ("Não foi possível gerar o relatório, pois está aberto por outro programa.")

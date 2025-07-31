@@ -6,6 +6,11 @@ function App() {
   const [validarFpl, setValidarFpl] = useState(false);
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [dadosExportacao, setDadosExportacao] = useState({
+    documentos_encontrados: [],
+    documentos_nao_encontrados: [],
+    qtde_arquivos_pesquisados: 0,
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,14 +33,18 @@ function App() {
         "http://localhost:8000/buscar",
         "http://127.0.0.1:8000/buscar"
       ];
-      
+
       let res;
       for (const url of possibleUrls) {
         try {
           res = await fetch(url, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ diretorio, documentos: docs, validar_fpl: validarFpl }),
+            body: JSON.stringify({
+              diretorio,
+              documentos: docs,
+              validar_fpl: validarFpl
+            }),
           });
           if (res.ok) break;
         } catch (err) {
@@ -49,10 +58,60 @@ function App() {
 
       const data = await res.json();
       setLogs(data.logs);
+      setDadosExportacao({
+        documentos_encontrados: data.documentos_encontrados,
+        documentos_nao_encontrados: data.documentos_nao_encontrados,
+        qtde_arquivos_pesquisados: data.qtde_arquivos_pesquisados,
+      });
     } catch (error) {
       setLogs([`Erro: ${error.message}`]);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleExportarExcel = async () => {
+    if (!dadosExportacao) {
+      alert("Faça uma busca antes de exportar.");
+      return;
+    }
+
+    try {
+      const possibleUrls = [
+        "http://localhost:8000/exportar",
+        "http://127.0.0.1:8000/exportar"
+      ];
+      let res;
+
+      for (const url of possibleUrls) {
+        try {
+          res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              ...dadosExportacao,
+              nome_arquivo: "relatorio_processamento.xlsx"
+            }),
+          });
+          if (res.ok) break;
+        } catch (err) {
+          console.log(`Erro tentando ${url}:`, err);
+        }
+      }
+
+      if (!res || !res.ok) throw new Error("Erro ao exportar relatório.");
+
+      const blob = await res.blob();
+      const urlBlob = window.URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = urlBlob;
+      link.setAttribute("download", "relatorio_processamento.xlsx");
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } catch (error) {
+      alert("Erro ao exportar: " + error.message);
     }
   };
 
@@ -190,7 +249,7 @@ function App() {
                     {logs.length} entradas
                   </div>
                 </div>
-                
+
                 <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
                   <div className="max-h-80 overflow-y-auto">
                     <pre className="p-4 text-sm text-gray-800 font-mono leading-relaxed whitespace-pre-wrap">
@@ -198,10 +257,11 @@ function App() {
                     </pre>
                   </div>
                 </div>
-                
+
                 {/* Ações dos resultados */}
                 <div className="flex justify-end space-x-3 mt-4">
                   <button
+                    onClick={handleExportarExcel}
                     className="flex items-center space-x-2 px-4 py-2 text-sm text-green-600 hover:text-green-900 hover:bg-green-50 rounded-lg transition-colors"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
