@@ -65,3 +65,9 @@ def executar_pesquisa_documentos(diretorio_atual, validar_fpl, documentos, log_c
     log_callback(f'Total de documentos não encontrados em arquivo: {qtde_documentos_nao_encontrados}')
     log_callback(f'Total de documentos encontrados em arquivo: {qtde_documentos_encontrados}')
     log_callback(f'Tempo de execução: {tempo_formatado}')
+
+    return{
+        "documentos_encontrados": documentos_encontrados,
+        "documentos_nao_encontrados": list(documentos_nao_encontrados),
+        "qtde_arquivos_pesquisados": qtde_arquivos_pesquisados
+    }
