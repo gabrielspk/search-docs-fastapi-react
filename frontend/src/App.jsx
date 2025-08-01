@@ -130,7 +130,7 @@ function App() {
               <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                 Buscador de Documentos
               </h1>
-              <p className="text-sm text-gray-600">Sistema inteligente de busca de arquivos</p>
+              <p className="text-sm text-gray-600">Realiza busca de documentos dentro de arquivos</p>
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@ function App() {
                     onChange={(e) => setDocumentos(e.target.value)}
                     rows="8"
                     className="w-full bg-gray-50/50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-500 focus:bg-white focus:border-blue-400 focus:ring-4 focus:ring-blue-100 transition-all duration-200 outline-none resize-none"
-                    placeholder={`CPF12345678901\nRG123456789\nCNPJ12345678000195\n\nDigite cada documento em uma linha...`}
+                    placeholder={`XX123456789XX\nYY123456789YY\nZZ123456789ZZ\n\nDigite cada documento em uma linha...`}
                     required
                   />
                   <div className="absolute top-3 right-3 text-xs text-gray-400 bg-white px-2 py-1 rounded-lg border">
