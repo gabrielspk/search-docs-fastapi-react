@@ -201,7 +201,7 @@ function App() {
                     id="fpl"
                     checked={validarFpl}
                     onChange={(e) => setValidarFpl(e.target.checked)}
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2 cursor-pointer"
                   />
                 </div>
                 <div className="text-sm">
@@ -218,7 +218,7 @@ function App() {
               <button
                 onClick={handleSubmit}
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-[1.02] disabled:hover:scale-100 disabled:cursor-not-allowed shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 transform hover:scale-[1.02] disabled:hover:scale-100 disabled:cursor-not-allowed shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 cursor-pointer"
               >
                 {loading ? (
                   <>
@@ -312,7 +312,7 @@ function App() {
 
         {/* Footer informativo */}
         <div className="text-center mt-8 text-sm text-gray-500">
-          <p>Sistema de busca inteligente • Suporte para múltiplos formatos de arquivo</p>
+          <p>Pesquisa de documentos • Suporte para múltiplos formatos de arquivo</p>
         </div>
       </div>
     </div>
