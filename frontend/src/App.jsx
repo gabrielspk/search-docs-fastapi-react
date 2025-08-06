@@ -120,78 +120,79 @@ function App() {
   };
 
 return (
-  <div className="min-h-screen bg-gray-100">
-    {/* Header com gradiente sutil */}
-    <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-10">
-      <div className="max-w-full mx-auto px-6 py-4">
-        <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 bg-[#2A3F54] rounded-xl flex items-center justify-center">
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <div className="min-h-screen flex">
+    
+    {/* Sidebar fixo - agora ocupa altura total */}
+    <aside className="w-64 bg-[#2A3F54] text-white flex-shrink-0 shadow-xl">
+      <div className="p-6">
+        <h2 className="text-xl font-bold mb-3 text-white/90">Menu</h2>
+        
+        {/* Lista do menu */}
+        <nav className="space-y-1">
+          <a href="#" className="flex items-center space-x-2 p-3 rounded-lg hover:bg-[#3B4F65] transition-colors duration-200 group">
+            <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
+            </svg>
+            <span className="font-medium">Dashboard</span>
+          </a>
+          
+          <a href="#" className="flex items-center space-x-2 p-3 rounded-lg hover:bg-[#3B4F65] transition-colors duration-200 group">
+            <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            <span className="font-medium">Relatórios</span>
+          </a>
+          
+          <a href="#" className="flex items-center space-x-2 p-3 rounded-lg hover:bg-[#3B4F65] transition-colors duration-200 group">
+            <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span className="font-medium">Configurações</span>
+          </a>
+          
+          <a href="#" className="flex items-center space-x-2 p-3 rounded-lg hover:bg-[#3B4F65] transition-colors duration-200 group">
+            <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-          </div>
-          <div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              Buscador de Documentos
-            </h1>
-            <p className="text-sm text-gray-600">Realiza busca de documentos dentro de arquivos</p>
+            <span className="font-medium">Busca Avançada</span>
+          </a>
+        </nav>
+        
+        {/* Seção inferior do menu */}
+        <div className="mt-8 pt-6 border-t border-white/10">
+          <div className="text-xs text-white/60 mb-2">Suporte</div>
+          <a href="#" className="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#3B4F65] transition-colors duration-200 text-sm">
+            <svg className="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Ajuda</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    {/* Área principal com header e conteúdo */}
+    <div className="flex-1 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex flex-col">
+      
+      {/* Header com gradiente sutil - agora dentro da área principal */}
+      <div className="bg-white/80 backdrop-blur-sm border-b border-gray-200/50 sticky top-0 z-10">
+        <div className="max-w-full mx-auto px-6 py-4">
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-[#2A3F54] rounded-xl flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                Buscador de Documentos
+              </h1>
+              <p className="text-sm text-gray-600">Realiza busca de documentos dentro de arquivos</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    {/* Container principal com flex */}
-    <div className="flex min-h-[calc(100vh-72px)]">
-      
-      {/* Sidebar fixo */}
-      <aside className="w-64 bg-[#2A3F54] text-white flex-shrink-0 shadow-xl">
-        <div className="p-6">
-          <h2 className="text-xl font-bold mb-6 text-white/90">Menu</h2>
-          
-          {/* Lista do menu */}
-          <nav className="space-y-2">
-            <a href="#" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-[#3B4F65] transition-colors duration-200 group">
-              <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
-              </svg>
-              <span className="font-medium">Dashboard</span>
-            </a>
-            
-            <a href="#" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-[#3B4F65] transition-colors duration-200 group">
-              <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-              </svg>
-              <span className="font-medium">Relatórios</span>
-            </a>
-            
-            <a href="#" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-[#3B4F65] transition-colors duration-200 group">
-              <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span className="font-medium">Configurações</span>
-            </a>
-            
-            <a href="#" className="flex items-center space-x-3 p-3 rounded-lg hover:bg-[#3B4F65] transition-colors duration-200 group">
-              <svg className="w-5 h-5 text-white/70 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              <span className="font-medium">Busca Avançada</span>
-            </a>
-          </nav>
-          
-          {/* Seção inferior do menu */}
-          <div className="mt-8 pt-6 border-t border-white/10">
-            <div className="text-xs text-white/60 mb-2">Suporte</div>
-            <a href="#" className="flex items-center space-x-3 p-2 rounded-lg hover:bg-[#3B4F65] transition-colors duration-200 text-sm">
-              <svg className="w-4 h-4 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>Ajuda</span>
-            </a>
-          </div>
-        </div>
-      </aside>
 
       {/* Conteúdo principal */}
       <main className="flex-1 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
